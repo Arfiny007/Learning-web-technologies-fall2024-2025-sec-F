@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tendify Online Shop - Customer Feedback</title>
+</head>
+<body>
+    <h1>Tendify Online Shop - Customer Feedback</h1>
+
+    <form action="/submit-feedback" method="post">
+        <label for="name">Your Name:</label><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+
+        <label for="email">Your Email:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+
+        <label for="feedback">Your Feedback:</label><br>
+        <textarea id="feedback" name="feedback" rows="5" placeholder="Write your feedback here..." required></textarea><br><br>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+</body>
+</html>

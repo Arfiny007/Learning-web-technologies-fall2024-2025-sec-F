@@ -1,0 +1,114 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.topbar {
+    background-color: #16404D;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: #A6CDC6;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #16404D;
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #DDA853;
+    color: white;
+}
+
+body {
+    background-color: #FBF5DD;
+    color: #16404D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+fieldset {
+    background-color: #A6CDC6;
+    border: 2px solid #16404D;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+}
+
+legend {
+    font-size: 20px;
+    font-weight: bold;
+    color: #16404D;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+td {
+    padding: 10px 0;
+}
+
+.email, .password {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #16404D;
+    border-radius: 5px;
+}
+
+.submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #DDA853;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+
+.submit:hover {
+    background-color: #16404D;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #16404D;
+    text-decoration: none;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}

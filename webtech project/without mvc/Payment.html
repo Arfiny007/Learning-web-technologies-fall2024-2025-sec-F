@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Purchase Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+        }
+
+        .product-container {
+            background-color: white;
+            padding: 20px;
+            margin: 30px auto;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-container img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .product-info {
+            margin-top: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .product-info p {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .payment-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .payment-button:hover {
+            background-color: #0056b3;
+        }
+
+        .payment-options {
+            margin-top: 30px;
+        }
+
+        .payment-option {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .payment-option:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            background-color: #808080;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #6f6f6f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Product Purchase Payment</h1>
+</header>
+
+<div class="product-container">
+    <img src="https://via.placeholder.com/300" alt="Product Image">
+    <div class="product-info">
+        <h3>Product Name</h3>
+        <p>Price: $29.99</p>
+        <button class="payment-button" onclick="processPayment()">Proceed to Payment</button>
+    </div>
+
+    <div class="payment-options">
+        <button class="payment-option" onclick="selectPayment('bKash')">Pay with bKash</button>
+        <button class="payment-option" onclick="selectPayment('Card')">Pay with Card</button>
+        <button class="payment-option" onclick="selectPayment('Nagad')">Pay with Nagad</button>
+        <button class="payment-option" onclick="selectPayment('Bank')">Pay via Bank Transfer</button>
+    </div>
+
+    <button class="back-button" onclick="goBack()">Back</button>
+</div>
+
+<script>
+    function processPayment() {
+        alert("Your payment is being processed...");
+    }
+
+    function selectPayment(paymentMethod) {
+        alert("You have selected " + paymentMethod + " for payment.");
+    }
+
+    function goBack() {
+        window.history.back();
+    }
+</script>
+
+</body>
+</html>
+

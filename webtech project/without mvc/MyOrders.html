@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-list {
+            margin-top: 20px;
+        }
+
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .product-item button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .add-product {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .add-product input {
+            width: 70%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .add-product button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Orders</h1>
+</header>
+
+<div class="container">
+    <div class="add-product">
+        <input type="text" id="product-name" placeholder="Enter product name">
+        <button onclick="addProduct()">Add Product</button>
+    </div>
+
+    <div class="product-list" id="product-list">
+        <!-- Product items will appear here -->
+    </div>
+</div>
+
+<script>
+    function addProduct() {
+        var productName = document.getElementById("product-name").value;
+        
+        if (productName === "") {
+            alert("Please enter a product name.");
+            return;
+        }
+
+        var productList = document.getElementById("product-list");
+
+        var productItem = document.createElement("div");
+        productItem.classList.add("product-item");
+
+        var productText = document.createElement("span");
+        productText.textContent = productName;
+
+        var editButton = document.createElement("button");
+        editButton.classList.add("edit-btn");
+        editButton.textContent = "Edit";
+        editButton.onclick = function() { editProduct(productText); };
+
+        var deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-btn");
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = function() { deleteProduct(productItem); };
+
+        productItem.appendChild(productText);
+        productItem.appendChild(editButton);
+        productItem.appendChild(deleteButton);
+
+        productList.appendChild(productItem);
+
+        document.getElementById("product-name").value = "";  // Clear the input field
+    }
+
+    function deleteProduct(productItem) {
+        productItem.remove();
+    }
+
+    function editProduct(productText) {
+        var newProductName = prompt("Edit the product name:", productText.textContent);
+        
+        if (newProductName !== null && newProductName !== "") {
+            productText.textContent = newProductName;
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tendify Online Shop - Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0fff0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: white;
+            border: 2px solid #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .review-form textarea {
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border: 2px solid #4CAF50;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .review-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .review-form button:hover {
+            background-color: #45a049;
+        }
+
+        .reviews {
+            margin-top: 20px;
+        }
+
+        .review {
+            background-color: #e8f5e9;
+            border: 1px solid #4CAF50;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .review h4 {
+            margin: 0;
+            color: #2e7d32;
+        }
+
+        .review p {
+            margin: 5px 0 0;
+            color: #333;
+        }
+
+        .back-button {
+            background-color: #f39c12;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .back-button:hover {
+            background-color: #e67e22;
+        }
+
+        .edit-button, .delete-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+        }
+
+        .edit-button:hover, .delete-button:hover {
+            background-color: #45a049;
+        }
+
+        .edit-button {
+            background-color: #f39c12;
+        }
+
+        .delete-button {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Tendify Online Shop - Reviews
+</header>
+
+<div class="container">
+    <h2>Share Your Review</h2>
+
+    <form class="review-form">
+        <textarea placeholder="Write your review here..."></textarea>
+        <button type="button" onclick="addReview()">Submit</button>
+    </form>
+
+    <div class="reviews" id="reviews">
+        <div class="review">
+            <h4>John Doe</h4>
+            <p>Great shopping experience! The delivery was fast, and the products were amazing.</p>
+            <button class="edit-button" onclick="editReview(this)">Edit</button>
+            <button class="delete-button" onclick="deleteReview(this)">Delete</button>
+        </div>
+        <div class="review">
+            <h4>Jane Smith</h4>
+            <p>The customer support was so helpful. I will definitely shop again!</p>
+            <button class="edit-button" onclick="editReview(this)">Edit</button>
+            <button class="delete-button" onclick="deleteReview(this)">Delete</button>
+        </div>
+    </div>
+
+    <button class="back-button" onclick="window.history.back()">Back</button>
+</div>
+
+<script>
+    function addReview() {
+        var reviewText = document.querySelector(".review-form textarea").value;
+        if (reviewText) {
+            var reviewsContainer = document.getElementById("reviews");
+
+            var newReview = document.createElement("div");
+            newReview.classList.add("review");
+
+            var reviewContent = `
+                <h4>New Reviewer</h4>
+                <p>${reviewText}</p>
+                <button class="edit-button" onclick="editReview(this)">Edit</button>
+                <button class="delete-button" onclick="deleteReview(this)">Delete</button>
+            `;
+
+            newReview.innerHTML = reviewContent;
+            reviewsContainer.appendChild(newReview);
+
+            document.querySelector(".review-form textarea").value = "";
+        }
+    }
+
+    function editReview(button) {
+        var review = button.parentElement;
+        var reviewText = review.querySelector("p").innerText;
+        var newText = prompt("Edit your review:", reviewText);
+        if (newText) {
+            review.querySelector("p").innerText = newText;
+        }
+    }
+
+    function deleteReview(button) {
+        var review = button.parentElement;
+        review.remove();
+    }
+</script>
+
+</body>
+</html>

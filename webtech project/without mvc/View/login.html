@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #A8DADC; 
+    color: #333; 
+  }
+
+  .header {
+    background-color: #BFD8BD; 
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5em;
+  }
+
+  .nav {
+    background-color: #F4E1D2; 
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav a {
+    color: #333;
+    padding: 10px 20px;
+    background-color: #BFD8BD; 
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  .nav a:hover {
+    background-color: #A8DADC; 
+    color: white;
+  }
+
+  .main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh; 
+    background-color: #F4E1D2;
+    padding: 30px;
+  }
+
+  .footer {
+    background-color: #BFD8BD; 
+    color: white;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 350px;
+  }
+
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .form-group label {
+    font-size: 1rem;
+    color: #333;
+    width: 35%; /* Adjust label width */
+    text-align: left;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    width: 60%; /* Adjust input width */
+    padding: 10px; /* Increase input height */
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  input[type="submit"] {
+    padding: 15px 25px; /* Increase button size */
+    font-size: 1.2rem; /* Larger text */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  a {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Tendify Online Shop</h1>
+</div>
+
+<div class="nav">
+  <a href="home.html"> Home </a>
+</div>
+
+<div class="main">
+  <div class="card">
+    <form id="formlogin" method="post" action="loginCheck.php" enctype="" onsubmit="return check()">
+      <div class="form-group">
+       UserID: 
+        <input type="text" id="userid" name="userid" value="" placeholder="X-000" onkeyup="validuser()"/><br>
+      </div>
+      <p id="user"></p>
+      <div class="form-group">
+        Password: 
+        <input type="password" id="password" name="password" value="" onkeyup="validatePassword()"/><br>
+      </div>
+      <p id="pass"></p><br>
+      <input type="submit" name="submit" value="Submit"/>
+ 
+    </form>
+   
+    <p id="msg"> </p><br>
+  </div>
+</div>
+
+  <script>
+
+    function validuser()
+    {
+        let id = document.getElementById('userid').value;
+        let pass = document.getElementById('password').value;
+
+        if(id=='')
+        {
+            document.getElementById('user').innerHTML = 'UserId cannot be null';
+            document.getElementById('user').style = 'color: red';
+            return false;
+        }
+        else
+        {
+          document.getElementById('user').innerHTML = '';
+          return true;
+        }
+    }
+    function validatePassword() {
+                let password = document.getElementById('password').value;
+
+                if (password.length === 0) {
+                    document.getElementById('pass').innerHTML = "Password cannot be empty.";
+                    document.getElementById('pass').style.color = "red";
+                    return false;
+                } else if (password.length < 3) {
+                    document.getElementById('pass').innerHTML = "Password is too short.";
+                    document.getElementById('pass').style.color = "red";
+                    return false;
+                } else {
+                    document.getElementById('pass').innerHTML = "";
+                    return true;
+                }
+            }
+            function valid()
+            {
+                if(validatePassword()==true && validuser==true)
+                {
+                  return true;
+                }
+                else
+                {
+                  return true;
+                }
+            }
+            function check() {
+
+              if(valid()==false)
+              return false;
+  let userid = document.getElementById('userid').value;
+  let password = document.getElementById('password').value;
+  let json = { 'userid': userid, 'password': password };
+  let user = JSON.stringify(json);
+
+  let xhttp = new XMLHttpRequest();
+  xhttp.open('POST', '../controller/loginCheck.php', true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send('mydata=' + user);
+
+  event.preventDefault(); 
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let std = JSON.parse(this.responseText);
+      let status = std.pass;
+      
+      if (status == '1') 
+      {
+        window.location.href = 'adminhome.php';
+      }
+      else
+      {
+      
+        document.getElementById('msg').innerHTML = 'Invalid Credentials';
+        document.getElementById('msg').style = 'color:red';
+        document.getElementById('formlogin').reset();
+      }
+    }
+  };
+
+    return false;
+ 
+ 
+}
+
+  
+
+
+  </script>
+
+<div class="footer">
+  <p>&copy; 2025 Tendify Online Shop | All Rights Reserved</p>
+</div>
+
+</body>
+</html>

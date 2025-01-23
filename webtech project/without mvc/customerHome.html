@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Product Management</title>
+</head>
+<body>
+    <h1>Product Management</h1>
+
+    <!-- Add Product Section -->
+    <h3>Add Product</h3>
+    <form action="/add-product" method="post">
+        <label for="productName">Product Name:</label><br>
+        <input type="text" id="productName" name="productName" placeholder="Enter product name" required><br><br>
+        
+        <label for="productStock">Stock:</label><br>
+        <input type="number" id="productStock" name="productStock" placeholder="Enter stock amount" required><br><br>
+
+        <button type="submit">Add Product</button>
+    </form>
+
+    <hr>
+
+    <!-- Product List (Static Example) -->
+    <h3>Product List</h3>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Example Product</td>
+                <td>100</td>
+                <td>
+                    <!-- Edit Product -->
+                    <form action="/edit-product" method="post" style="display:inline;">
+                        <input type="hidden" name="productId" value="1">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <!-- Delete Product -->
+                    <form action="/delete-product" method="post" style="display:inline;">
+                        <input type="hidden" name="productId" value="1">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</body>
+</html>

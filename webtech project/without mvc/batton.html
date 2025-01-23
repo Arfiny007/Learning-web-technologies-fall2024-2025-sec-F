@@ -1,0 +1,4 @@
+$con = mysqli_connect('127.0.0.1', 'root', '', 'Tendify');
+            $sql = "select * from emplolyee where ID='{$userid}' and password='{$password}'";
+            $result = mysqli_query($con, $sql);
+            $count =  mysqli_num_rows($result);

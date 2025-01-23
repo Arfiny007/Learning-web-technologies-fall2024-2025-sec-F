@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tendify Online Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .top-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .top-button:hover {
+            background-color: #45a049;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .actions button {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .faq-button, .review-button, .orders-button, .top-button {
+            background-color: #4CAF50;
+        }
+
+        .coupon-button {
+            background-color: #4CAF50;
+        }
+
+        .payment-button {
+            background-color: #007BFF;
+        }
+
+        .logout-button {
+            background-color: red;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .back-button {
+            background-color: gray;
+            color: white;
+            width: 200px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+<a href="UserInfo.html"><button class="top-button">My Info</button></a>
+
+<header>
+    <h1>Welcome to Tendify Online Shop!</h1>
+</header>
+
+<div class="container">
+    <div class="actions">
+        <a href="userFAQ.html"><button class="faq-button">FAQ</button></a>
+        <a href="Review.html"><button class="review-button" >Review</button></a>
+        <a href="MyOrders.html"><button class="orders-button">My Orders</button></a>
+        <a href="coupne.php"><button class="coupon-button">My Coupon</button></a>
+        <a href="Payment.html"><button class="payment-button">Product Purchase Payment</button></a>
+    </div>
+
+    <div class="actions">
+        <button class="back-button" onclick="alert('Going back...')">Back</button>
+        <button class="logout-button" onclick="alert('Logging out...')">Log Out</button>
+    </div>
+</div>
+
+</body>
+</html>
